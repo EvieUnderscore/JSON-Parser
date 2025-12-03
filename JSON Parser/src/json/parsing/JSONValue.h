@@ -1,4 +1,6 @@
 #pragma once
+#include <any>
+
 class JSONValue
 {
 public:
@@ -11,7 +13,14 @@ public:
 		VAL_NULL
 	};
 
+	enum JSONBoolValues {
+		TRUE = true,
+		FALSE = false
+	};
+
 	JSONValueType type;
+
+	std::any value = "";
 ;
 };
 

@@ -20,7 +20,7 @@ void JSONParser::detectThing() {
         //loop through lines
         std::string line = parsedJsonFull[i - 1];
         
-        //iterator stuff
+        // iterator stuff
         int readLineLength = 0;
         int readStringLength = 0;
 
@@ -47,7 +47,8 @@ void JSONParser::detectThing() {
 
                             if (key != "")
                             {
-                                parsedKeyValues[key] = value;
+                                parsedKeyValues[key].type = JSONValue::JSONValueType::VAL_STRING;
+                                parsedKeyValues[key].value = value;
                             }
 
                         }
@@ -73,6 +74,34 @@ void JSONParser::detectThing() {
                     readingValue = true;
                 }
             }
+
+            if (readingValue) {
+                if (line.substr(readLineLength, 4) == "true")
+                {
+                    if (key != "")
+                    {
+                        parsedKeyValues[key].type = JSONValue::JSONValueType::VAL_BOOL;
+                        parsedKeyValues[key].value = true;
+                    }
+                }
+                if (line.substr(readLineLength, 5) == "false")
+                {
+                    if (key != "")
+                    {
+                        parsedKeyValues[key].type = JSONValue::JSONValueType::VAL_BOOL;
+                        parsedKeyValues[key].value = false;
+                    }
+                }
+                if (line.substr(readLineLength, 4) == "null")
+                {
+                    if (key != "")
+                    {
+                        parsedKeyValues[key].type = JSONValue::JSONValueType::VAL_NULL;
+                        parsedKeyValues[key].value = nullptr;
+                    }
+                }
+            }
+
 
             if (c == ',') {
                 //thingy that identifies when to move to a new key|value pair i believe so

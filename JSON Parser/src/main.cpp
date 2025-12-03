@@ -13,8 +13,10 @@ int main() {
 
     if (testParser.parsedKeyValues.size() > 0)
     {
-        std::cout << std::any_cast<std::string>(testParser.parsedKeyValues["key"]) << std::endl;
-        std::cout << std::any_cast<std::string>(testParser.parsedKeyValues["key2"]) << std::endl;
-
+        for (const auto& pair : testParser.parsedKeyValues) {
+            if (pair.second.type == JSONValue::JSONValueType::VAL_STRING) {
+                std::cout << std::any_cast<std::string>(pair.second.value) << std::endl;
+            }
+        }
     }
 }

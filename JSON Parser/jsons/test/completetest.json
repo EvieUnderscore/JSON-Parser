@@ -1,0 +1,39 @@
+﻿{
+  "string_field": "This is a string",
+  "integer_field": 123,
+  "float_field": 3.14,
+  "boolean_true_field": true,
+  "boolean_false_field": false,
+  "null_field": null,
+  "empty_object": {},
+  "empty_array": [],
+  "object_field": {
+    "nested_string": "Nested value",
+    "nested_number": 42
+  },
+  "array_of_strings": [
+    "alpha",
+    "beta",
+    "gamma"
+  ],
+  "array_of_objects": [
+    {
+      "id": 1,
+      "name": "Item A"
+    },
+    {
+      "id": 2,
+      "name": "Item B"
+    }
+  ],
+  "array_of_mixed_types": [
+    "string",
+    123,
+    true,
+    null,
+    {},
+    []
+  ],
+  "unicode_characters": "你好世界",
+  "special_characters": "Line break\nTab\tBackslash\\Quote\""
+}

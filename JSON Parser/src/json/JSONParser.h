@@ -6,6 +6,7 @@
 #include <variant>
 #include <vector>
 #include <map>
+#include <any>
 
 #include "parsing/JSONValue.h"
 
@@ -17,7 +18,9 @@ public:
 	bool Parse(std::string filePath);
 
 	std::vector<std::string> parsedJsonFull;
-	std::map<std::string, JSONValue> parsedKeyValues;
+	std::map<std::string, std::any> parsedKeyValues;
+
+	void detectThing();
 
 };
 

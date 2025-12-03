@@ -1,9 +1,5 @@
 {
   "key": "value",
-  "key2": 1,
-  "key3": [
-    2,
-    3
-  ]
+  "key2": "value2"
 }
 
